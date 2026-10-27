@@ -8,7 +8,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="HOIST">
 <meta name="theme-color" content="#0e0e0d"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-512.png"><link rel="manifest" href="manifest.webmanifest">
 <style>html,body{height:100%;overflow:hidden;background:#0e0e0d}</style>
-<script>window.HOIST_WEB = "20261027183132"; if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));</script>
+<script>(function () { var L = [['apple-touch-icon', 'icon-180.png'], ['icon', 'icon-512.png'], ['manifest', 'manifest.webmanifest']];
+  function ok() { L.forEach(function (x) { if (!document.querySelector('link[rel="' + x[0] + '"]') && document.head) { var l = document.createElement('link'); l.rel = x[0]; l.href = x[1]; document.head.appendChild(l); } }); }
+  setInterval(ok, 1500); addEventListener('load', ok); })();</script>
+<script>window.HOIST_WEB = "20261027183629"; if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));</script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -54,6 +57,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         e.target.tagName, String(e.target.src || e.target.href || ''));
       return;
     }
+    // «Script error.» sin detalles = script ajeno (extensiones de Safari, bloqueadores): no es de la app
+    if (/^Script error\.?$/.test(e.message || '') && !e.filename) return;
     var p = document.body || document.documentElement;
     var d = document.getElementById('__bundler_err') || p.appendChild(document.createElement('div'));
     d.id = '__bundler_err';
