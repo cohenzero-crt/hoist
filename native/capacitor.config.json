@@ -1,0 +1,11 @@
+{
+  "appId": "com.cohenzero.hoist",
+  "appName": "HOIST",
+  "webDir": "www",
+  "backgroundColor": "#0e0e0d",
+  "ios": {
+    "contentInset": "never",
+    "scrollEnabled": false,
+    "limitsNavigationsToAppBoundDomains": false
+  }
+}
